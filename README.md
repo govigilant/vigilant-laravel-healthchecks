@@ -1,6 +1,6 @@
 # Vigilant Laravel Healthchecks
 
-A package to integrate [Vigilant](https://govigilant.io)' healthchecks with Laravel.
+A package to integrate [Vigilant](https://github.com/govigilant/vigilant)'s healthchecks with Laravel.
 
 ## Features
 
