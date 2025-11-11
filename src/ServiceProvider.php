@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use Vigilant\Healthchecks\Checks\QueueCheck;
 use Vigilant\Healthchecks\Jobs\QueueHeartbeatJob;
+use Vigilant\HealthChecksBase\Checks\DiskSpaceCheck;
+use Vigilant\HealthChecksBase\Checks\Metrics\CpuLoadMetric;
+use Vigilant\HealthChecksBase\Checks\Metrics\DiskUsageMetric;
+use Vigilant\HealthChecksBase\Checks\Metrics\MemoryUsageMetric;
 
 class ServiceProvider extends BaseServiceProvider
 {
@@ -120,7 +124,8 @@ class ServiceProvider extends BaseServiceProvider
             Checks\HorizonCheck::class,
             Checks\EnvCheck::class,
             Checks\SchedulerCheck::class,
-            Checks\DiskSpaceCheck::class,
+            DiskSpaceCheck::class,
+
         ];
 
         foreach ($checks as $checkClass) {
@@ -128,9 +133,9 @@ class ServiceProvider extends BaseServiceProvider
         }
 
         $metrics = [
-            Checks\Metrics\MemoryUsageMetric::class,
-            Checks\Metrics\CpuLoadMetric::class,
-            Checks\Metrics\DiskUsageMetric::class,
+            MemoryUsageMetric::class,
+            CpuLoadMetric::class,
+            DiskUsageMetric::class,
             Checks\Metrics\DatabaseSizeMetric::class,
             Checks\Metrics\LogFileSizeMetric::class,
         ];
